@@ -1,5 +1,5 @@
 from flask import Flask, send_from_directory
-j
+
 app = Flask(__name__, static_folder=r'C:\Users\ElphusK\Videos\New Folder\New folder\static')
 
 # Route to serve static files
