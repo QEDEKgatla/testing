@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory, request, redirect, url_for, render_template_string, session
 
-app = Flask(__name__, static_folder=r'New folder/static')
+app = Flask(__name__, static_folder=r'C:\Users\ElphusK\Documents\GitHub\testing\New folder\static')
 
 # Set a secure secret key for session management
 app.secret_key = 'your_secret_key_here'  # Replace with your actual secret key
@@ -90,14 +90,14 @@ def login():
 def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    return send_from_directory(r'New folder/static', 'T.html')
+    return send_from_directory(r'C:\Users\ElphusK\Documents\GitHub\testing\New folder\static', 'T.html')
 
 # Route to serve static files
 @app.route('/copperlichtdata/<path:filename>')
 def serve_static(filename):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    return send_from_directory(r'New folder/static/copperlichtdata', filename)
+    return send_from_directory(r'C:\Users\ElphusK\Documents\GitHub\testing\New folder\static\copperlichtdata', filename)
 
 # Route to log out
 @app.route('/logout')
