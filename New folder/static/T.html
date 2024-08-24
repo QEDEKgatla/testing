@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="copperlichtdata/copperlicht.js"></script>
     <style>
+        /* Ensure the canvas takes up the full viewport */
         html, body {
             margin: 0;
             padding: 0;
@@ -12,20 +13,27 @@
         }
         #3darea {
             display: block;
+            width: 100%;
+            height: 100%;
             background-color: #000000;
         }
     </style>
 </head>
 <body>
-    <canvas id="3darea"></canvas>
+    <div align="center">
+        <canvas id="3darea"></canvas>
+    </div>
     <script type="text/javascript">
-        // Function to initialize Copperlicht
-        function initCopperlicht() {
-            startCopperLichtFromFile('3darea', 'copperlichtdata/T.ccbjs', 'Loading $PROGRESS$...<br/><br/><img style="max-width:50%" src="copperlichtdata/coppercubeloadinglogo.png" />', 'Error: This browser does not support WebGL (or it is disabled).<br/>See <a href="http://www.ambiera.com/copperlicht/browsersupport.html">here</a> for details.', false, false, "#000000");
-        }
-
-        // Initialize Copperlicht
-        initCopperlicht();
+        // Initialize the CopperLicht engine
+        startCopperLichtFromFile(
+            '3darea',
+            'copperlichtdata/myGame.ccbz',
+            'Loading $PROGRESS$...<br/><br/><img style="max-width:50%" src="copperlichtdata/coppercubeloadinglogo.png" />',
+            'Error: This browser does not support WebGL (or it is disabled).<br/>See <a href="http://www.ambiera.com/copperlicht/browsersupport.html">here</a> for details.',
+            false,
+            true,
+            "#000000"
+        );
 
         // Function to resize the canvas
         function resizeCanvas() {
@@ -42,8 +50,7 @@
     </script>
     <br/>
     <div align="center">
-        <small>Created using <a href="http://www.ambiera.com/coppercube/index.html">CopperCube</a></small>
+        
     </div>
 </body>
 </html>
-
