@@ -3,13 +3,42 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="copperlichtdata/copperlicht.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #3darea {
+            display: block;
+            background-color: #000000;
+        }
+    </style>
 </head>
 <body>
-    <div align="center">
-        <canvas id="3darea" width="640" height="480" style="background-color:#000000"></canvas>
-    </div>
+    <canvas id="3darea"></canvas>
     <script type="text/javascript">
-        startCopperLichtFromFile('3darea', 'copperlichtdata/T.ccbjs', 'Loading $PROGRESS$...<br/><br/><img style="max-width:50%" src="copperlichtdata/coppercubeloadinglogo.png" />', 'Error: This browser does not support WebGL (or it is disabled).<br/>See <a href="http://www.ambiera.com/copperlicht/browsersupport.html">here</a> for details.', false, false, "#000000");
+        // Function to initialize Copperlicht
+        function initCopperlicht() {
+            startCopperLichtFromFile('3darea', 'copperlichtdata/T.ccbjs', 'Loading $PROGRESS$...<br/><br/><img style="max-width:50%" src="copperlichtdata/coppercubeloadinglogo.png" />', 'Error: This browser does not support WebGL (or it is disabled).<br/>See <a href="http://www.ambiera.com/copperlicht/browsersupport.html">here</a> for details.', false, false, "#000000");
+        }
+
+        // Initialize Copperlicht
+        initCopperlicht();
+
+        // Function to resize the canvas
+        function resizeCanvas() {
+            var canvas = document.getElementById('3darea');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        // Resize the canvas to fill the viewport initially
+        resizeCanvas();
+
+        // Adjust canvas size on window resize
+        window.addEventListener('resize', resizeCanvas);
     </script>
     <br/>
     <div align="center">
@@ -17,3 +46,4 @@
     </div>
 </body>
 </html>
+
